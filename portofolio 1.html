@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #5AB2FF;
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem 12% 4rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: left;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.logo span {
+    color: var(--main-color);
+}
+
+.home-content h3 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.home-img {
+    border-radius: 50%;
+}
+
+.home-img img {
+    position: relative;
+    top: 3rem;
+    width: 22vw;
+    height: 22vw;
+    margin-left: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+}
+
+.home-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+.social-icon a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 2rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease-in-out;
+}
+
+
+.social-icon a:hover {
+    color: var(--main-color);
+    transform: scale(1.3)translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: black;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px var(--main-color);
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+}
+
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.text-animation span {
+    position: relative;
+}
+
+.text-animation span::before {
+    content: "Informatics Student";
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--main-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+
+    0%,
+    35% {
+        content: "Freelance Graphic Designer";
+    }
+
+    36%,
+    70% {
+        content: "Frontend Developer Aamiin";
+    }
+
+    71%,
+    100% {
+        content: "UI/UX Designer Aamiin";
+    }
+}
+
+@keyframes typing {
+
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+    background: var(--bg-color);
+    padding: 10rem 12%;
+    color: var(--text-color);
+}
+
+.content-about {
+    max-width: 800px;
+}
+
+.content-about h2 {
+    font-size: 6rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+    color: var(--main-color);
+}
+
+.content-about p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.project {
+    padding: 10rem 12%;
+    gap: 10rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.project h2 {
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 4rem;
+}
+
+.card {
+    background-color: var(--second-bg-color);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 50px var(--main-color);
+}
+
+.card-img-top {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+}
+
+.card-title {
+    color: var(--main-color);
+    font-size: 1.8rem;
+}
+
+.card-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.carousel-inner {
+    padding: 20px;
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.poster-img {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    transition: transform 0.3s;/
+}
+
+.poster-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+}
+
+.skill {
+    padding: 10rem 12%;
+    gap: 10rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.skill h2 {
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 4rem;
+
+}
+
+.skill .container-skill {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.skill .card {
+    width: 100px;
+    height: 100px;
+    background-color: var(--second-bg-color);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill .card-body {
+    padding: 0;
+}
+
+.skill .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+}
+
+.skill .skill-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.contact {
+    padding: 10rem 12%;
+    gap: 10rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.contact h2 {
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 4rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+.contact-form .form-control {
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--main-color);
+    box-shadow: none;
+}
+
+.contact-form label {
+    color: var(--main-color);
+}
+
+.contact-form button {
+    background-color: var(--main-color);
+    color: black;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: white;
+    color: var(--main-color);
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+.footer {
+    background-color: var(--second-bg-color);
+    color: var(--text-color);
+    padding: 2rem 0;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.footer .container {
+    max-width: 100%;
+}
+
+.footer .footer-contact {
+    margin-bottom: 2rem;
+}
+
+.footer .social-links a {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    margin-right: 1rem;
+    transition: 0.3s;
+}
+
+.footer .social-links a:last-child {
+    margin-right: 0;
+}
+
+.footer .social-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem 0 0;
+}
+
+.footer-bottom p {
+    font-size: 1.4rem;
+}
+    </style>
+</head>
+
+<body>
+    <header class="header navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a href="#home" class="navbar-brand logo">Ahmad Fahri <span>University Tadulako</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <nav class="navbar-nav ms-auto">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About Me</a>
+                    <a href="#project" class="nav-link">Portofolio</a>
+                    <a href="#skill" class="nav-link">Skill</a>
+                    <a href="#contact" class="nav-link">Contact Me</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="home d-flex align-items-center" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <div class="home-content">
+                        <h1>Hi, It's <span>Arii</span></h1>
+                        <h3 class="text-animation">I'm a <span></span></h3>
+                        <p>I'm an Informatics student at University of Tadulako Palu who likes design and
+                            technology</p>
+                    </div>
+                    <div class="social-icon">
+                        <a href="https://www.instagram.com/ae_xyrii?igsh=MTJ6aW1xam5tNTQ5Zg=="><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@bakalpulang0?_t=8rDQEmavvbs&_r=1"><i
+                                class="bi bi-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/arii-angineering-09965a337"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/Arii-Angineering"><i class="bi bi-github"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="home-img">
+                        <img src="1.jpg" alt="Profile Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="content-about">
+                <h2>About Me</h2>
+                <p>Saya Ahmad Fahri, seorang mahasiswa Agroteknolgi di Universitas Tadulako
+                    PALU. Dengan latar belakang sedikit tertarik dengan pengembangan web, khususnya PHP dan MySQL,
+                    saya berminat
+                    untuk terus belajar dan mengembangkan keterampilan saya di dunia teknologi. Saya juga pernah
+                    mengerjakan projek kreatif seperti desain logo
+                    dan desain grafis serta pengelolaan sosial media. selain itu saya juga memiliki kekurangan dan kelebihan,
+                    kelebihan saya: fast respon
+                    kekurangan saya: ga ada topik</p>
+            </div>
+        </div>
+    </section>
+    <section class="project" id="project">
+        <div class="container">
+            <h2 class="mb-5">My Project</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-5 mb-4">
+                    <div class="card h-100">
+                        <img src="2.jpeg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Graphic Designer</h5>
+                            <p class="card-text">Desain Grafis Berbasis Website</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-5 mb-4">
+                    <div class="card h-100">
+                        <img src="3.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Desain Grafis</h5>
+                            <p class="card-text">Desain Grafis Berbasis Website</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="posterCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-2">
+                                    <img src="4.jpg" class="d-block w-100 poster-img" alt="Poster Project 1">
+                                </div>
+                                <div class="col-2">
+                                    <img src="5.jpg" class="d-block w-100 poster-img" alt="Poster Project 2">
+                                </div>
+                                <div class="col-2">
+                                    <img src="6.png" class="d-block w-100 poster-img" alt="Poster Project 3">
+                                </div>
+                                <div class="col-2">
+                                    <img src="7.jpg" class="d-block w-100 poster-img" alt="Poster Project 4">
+                                </div>
+                                <div class="col-2">
+                                    <img src="8.jpg" class="d-block w-100 poster-img" alt="Poster Project 5">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-2">
+                                    <img src="9.jpg" class="d-block w-100 poster-img" alt="Poster Project 6">
+                                </div>
+                                <div class="col-2">
+                                    <img src="10.jpg" class="d-block w-100 poster-img" alt="Poster Project 7">
+                                </div>
+                                <div class="col-2">
+                                    <img src="11.jpg" class="d-block w-100 poster-img" alt="Poster Project 8">
+                                </div>
+                                <div class="col-2">
+                                    <img src="12.jpg" class="d-block w-100 poster-img" alt="Poster Project 9">
+                                </div>
+                                <div class="col-2">
+                                    <img src="13.jpg" class="d-block w-100 poster-img" alt="Poster Project 10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#posterCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#posterCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+    </section>
+    <section class="skill" id="skill">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="container-skill">
+                <div class="row justify-content-center">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="14.jpg" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="15.jpg" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="16.jpg" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="17.jpg" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="18.png" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="19.jpg" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <img src="20.jpg" class="img-fluid skill-icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form action="#" method="POST" class="contact-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message"
+                        required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 footer-contact">
+                    <div class="social-links text-center">
+                        <a href="https://www.instagram.com/ae_xyrii?igsh=MTJ6aW1xam5tNTQ5Zg=="><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@bakalpulang0?_t=8rDQEmavvbs&_r=1"><i
+                                class="bi bi-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/arii-angineering-09965a337?trk=contact-info"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/Arii-Angineering"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ahmad Fahri.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
